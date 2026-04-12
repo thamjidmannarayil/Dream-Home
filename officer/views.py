@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from django.shortcuts import render
 
-from Registration.models import applicant_model, builder_model
+from registration.models import applicant_model, builder_model
 from adminHome.models import office_model
 
 from applicant.models import request_model, complaint_model
