@@ -1,0 +1,29 @@
+                           {% extends 'loginheader.html' %}
+                           {% block content %}
+                            <form method="post">
+                              {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+
+                                    </div>
+
+
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="username">
+                                            <label for="subject">Username</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="password"  class="form-control" placeholder="password" id="message"name="password">
+                                            <label for="message">Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="submit" class="btn btn-primary w-100 py-3" value="Login">
+                                    </div>
+                                </div>
+                            </form>
+                           {% endblock %}

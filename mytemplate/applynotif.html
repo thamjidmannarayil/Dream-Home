@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="f1" method="post">
+    {% csrf_token %}
+    <table border="1">
+    {{ notif_data.as_table }}
+
+        </table>
+
+
+     <input type="submit" value="Update">
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
+        {% endfor %}
+
+    </ul>
+{% endif %}
+            <table border="1">
+    <tr>
+        <th>APPLY REQUEST</th>
+    </tr>
+    {% for obj in notif_list %}
+    <tr>
+
+        <td>{{obj.notification}}</td>
+        <td><a href="{% url 'up_req' obj.id %}"> UPDATE </a> </td>
+
+
+    </tr>
+     {% endfor %}
+</table>
+</form>
+</body>
+</html>

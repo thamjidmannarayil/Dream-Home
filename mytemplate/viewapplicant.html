@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <table border="1">
+    <tr>
+        <th>APPLICANT NAME</th>
+        <th>ADDRESS</th>
+        <th>MOBILE</th>
+         <th>EMAIL</th>
+        <th>LOGIN</th>
+        <th>REGISTRATION DATE</th>
+        <th>STATUS </th>
+
+    </tr>
+             {% for obj in applicant_list %}
+
+    <tr>
+      <td>{{obj.applicant_name}}</td>
+        <td>{{obj.address}}</td>
+        <td>{{obj.mobile}}</td>
+        <td>{{obj.email}}</td>
+        <td>{{obj.login}}</td>
+        <td>{{obj.reg_date}}</td>
+        <td>{{obj.status}}</td>
+
+
+
+    </tr>
+         {% endfor %}
+     </table>
+</body>
+</html>
+

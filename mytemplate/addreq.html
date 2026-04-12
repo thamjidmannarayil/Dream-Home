@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends 'applicantheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+
+<form id="f1" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-success table-striped">
+    {{ f.as_table }}
+
+        </table>
+
+
+     <input type="submit" value="submit">
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
+        {% endfor %}
+
+    </ul>
+{% endif %}
+
+    <table class="table table-success table-striped">
+    <tr>
+        <th>Adhaar Number</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Photo</th>
+        <th>Applicant Job</th>
+        <th>Id Proof</th>
+        <th>Plot Available</th>
+        <th>Cent</th>
+        <th>Survey Number</th>
+        <th>District</th>
+        <th>Village</th>
+        <th>Location</th>
+        <th>Location Type</th>
+        <th>Ration Card Number</th>
+        <th>Number of Members</th>
+        <th>Number of Govt Employees</th>
+        <th>Anual income</th>
+        <th>Income certificate</th>
+        <th>Applydate</th>
+
+
+    </tr>
+    {% for obj in req_list %}
+    <tr>
+
+        <td>{{obj.adhar_no}}</td>
+        <td>{{obj.gender}}</td>
+        <td>{{obj.age}}</td>
+        <td><img src="{{obj.photo.url }}" width =150 height =200/></td>
+        <td>{{obj.app_job}}</td>
+        <td><img src="{{obj.idproof.url }}" width =150 height =200/></td>
+        <td>{{obj.plot_available}}</td>
+        <td>{{obj.cent}}</td>
+        <td>{{obj.survey_no}}</td>
+        <td>{{obj.plot_distid}}</td>
+        <td>{{obj.plot_villageid}}</td>
+        <td>{{obj.location}}</td>
+        <td>{{obj.loc_type}}</td>
+        <td>{{obj.rationcard_no}}</td>
+        <td>{{obj.member_no}}</td>
+        <td>{{obj.Gov_emp_no}}</td>
+        <td>{{obj.Anual_income}}</td>
+        <td>{{obj.Income_certf}}</td>
+        <td>{{obj.applydate}}</td>
+
+        <td><a href="{% url 'verify' obj.id %}"> Verify </a> </td>
+    </tr>
+     {% endfor %}
+</table>
+</form>
+{% endblock %}
+</body>
+</html>

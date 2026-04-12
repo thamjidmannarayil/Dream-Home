@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="f1" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="1">
+    {{ f.as_table }}
+
+        </table>
+
+
+     <input type="submit" value="submit">
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
+        {% endfor %}
+
+    </ul>
+{% endif %}
+
+    <table border="1">
+    <tr>
+        <th>Project Name</th>
+        <th>Scheme Name</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>No of houses</th>
+        <th>Total amount</th>
+        <th>Normal fund</th>
+        <th>No of rooms</th>
+        <th>image 1 </th>
+        <th>image 2</th>
+        <th>Home Details</th>
+
+
+
+    </tr>
+    {% for obj in proj_list %}
+    <tr>
+        <td>{{obj.ProjectName}}</td>
+        <td>{{obj.scheme}}</td>
+        <td>{{obj.strt_dt}}</td>
+        <td>{{obj.end_dt}}</td>
+        <td>{{obj.house_no}}</td>
+        <td>{{obj.amount_tt}}</td>
+        <td>{{obj.normal_fnd}}</td>
+        <td>{{obj.no_rooms}}</td>
+        <td><img src="{{obj.image1.url }}" width =150 height =200/></td>
+        <td><img src="{{obj.image2.url }}" width =150 height =200/></td>
+        <td>{{obj.hm_details}}</td>
+        <td><a href="{% url 'up_proj' obj.id %}"> UPDATE </a> </td>
+        <td><a href="{% url 'del_proj' obj.id %}"> DELETE</a></td>
+
+    </tr>
+     {% endfor %}
+</table>
+</form>
+</body>
+</html>

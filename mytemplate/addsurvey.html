@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--orm id="f1" method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    <table border="1">-->
+<!--    {{ f.as_table }}-->
+
+<!--        </table>-->
+
+
+<!--     <input type="submit" value="submit">-->
+<!--        {% if messages %}-->
+<!--    <ul class="messages">-->
+<!--        {% for message in messages %}-->
+<!--            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>-->
+<!--        {% endfor %}-->
+
+<!--    </ul>-->
+<!--{% endif %}-->
+
+<!--    <table border="1">-->
+<!--    <tr>-->
+<!--        <th>Submitted By</th>-->
+<!--        <th>Submission date</th>-->
+<!--        <th>Verified By</th>-->
+<!--        <th>Verify date</th>-->
+<!--        <th>Reject Reason</th>-->
+
+
+<!--    </tr>-->
+<!--    {% for obj in surv_list %}-->
+<!--    <tr>-->
+<!--        <td>{{obj.submittedby}}</td>-->
+<!--        <td>{{obj.sub_date}}</td>-->
+<!--        <td>{{obj.verifyby}}</td>-->
+<!--        <td>{{obj.verify_date}}</td>-->
+<!--        <td>{{obj.reject_reason}}</td>-->
+
+<!--            </tr>-->
+<!--     {% endfor %}-->
+<!--</table>-->
+<form id="f1" method="post"  enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="1">
+    {{ f.as_table }}
+
+        </table>
+
+     <input type="submit" value="submit">
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
+        {% endfor %}
+
+    </ul>
+    {% endif %}
+
+</form>
+</body>
+</html>

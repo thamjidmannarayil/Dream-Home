@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="f1" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="1">
+    {{ f.as_table }}
+
+        </table>
+
+
+     <input type="submit" value="submit">
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
+        {% endfor %}
+
+    </ul>
+{% endif %}
+
+     <table border="1">
+    <tr>
+        <th>BID AMOUNT</th>
+        <th>DOCUMENT 1</th>
+        <th>DOCUMENT2</th>
+         <th>SUBMISSION DATE</th>
+
+    </tr>
+
+
+             {% for obj in reqapply_list %}
+
+    <tr>
+
+
+        <td>{{obj.bid_amt}}</td>
+        <td><img src="{{obj.doc1.url }}" width =150 height =200/></td>
+        <td><img src="{{obj.doc2.url }}" width =150 height =200/></td>
+        <td>{{obj.subdate}}</td>
+
+        <td><a href="{% url 'activate_builderQuote' obj.id %}"> Approve </a> </td>
+
+
+    </tr>
+     {% endfor %}
+</table>
+</form>
+</body>
+</html>

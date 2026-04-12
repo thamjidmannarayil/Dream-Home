@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+    <table border="1">
+    <tr>
+        <th>APPLICANT NAME</th>
+        <th>COMPLAINT</th>
+        <th>SEND DATE</th>
+
+
+
+    </tr>
+    {% for obj in com_list %}
+    <tr>
+        <td>{{obj.appln_no}}</td>
+        <td>{{obj.complaints}}</td>
+        <td>{{obj.send_date}}</td>
+
+
+
+
+        <td><a href="{% url 'insert_reply' obj.id %}"> REPLY </a> </td>
+    </tr>
+     {% endfor %}
+</table>
+
+</body>
+</html>

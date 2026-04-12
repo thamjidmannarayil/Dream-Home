@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="f1" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="1">
+    {{ f.as_table }}
+
+        </table>
+
+
+     <input type="submit" value="submit">
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> {{ message }}</li>
+        {% endfor %}
+
+    </ul>
+{% endif %}
+
+     <table border="1">
+    <tr>
+        <th>LICENCE DATE</th>
+        <th>ID PROOF</th>
+        <th>UPLOAD DOCUMENT</th>
+         <th>DISTRICT</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+        <th>REGISTRATION DATE</th>
+        <th>STATUS </th>
+    </tr>
+             {% for obj in build_list %}
+
+    <tr>
+      <td>{{obj.licenseno}}</td>
+        <td>{{obj.licencedate}}</td>
+        <td>{{obj.id_proof}}</td>
+        <td>{{obj.up_doc}}</td>
+        <td>{{obj.District}}</td>
+        <td>{{obj.email}}</td>
+        <td>{{obj.phone}}</td>
+        <td>{{obj.reg_date}}</td>
+
+
+        <td><a href="{% url 'activate_builder' obj.id %}"> Approve </a> </td>
+
+
+    </tr>
+     {% endfor %}
+</table>
+</form>
+</body>
+</html>

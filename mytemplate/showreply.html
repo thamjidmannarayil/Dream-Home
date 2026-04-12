@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'applicantheader.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+        <h1>REPLY</h1>
+
+
+
+
+
+<br>
+    {% for obj in rep_list %}
+        <br>
+<table class="table table-borderless">
+    <tr><th>Complaint:</th>
+    <td>
+        {{obj.complaint.complaints}}
+    </td>
+    </tr>
+         <tr>
+ <td colspan="2">
+          {{obj.reply}}
+    </td>
+
+</tr>
+
+</table>
+     {% endfor %}
+{% endblock %}
+
+
+</body>
+</html>

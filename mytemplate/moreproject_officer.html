@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   {% for obj in project_list %}
+<table border="1">
+    <tr>
+        <th>APPLICANT NUMBER</th>
+                <td>{{obj.appln_no}}</td></tr>
+    <tr>
+        <th>APPLICATION DATE</th>
+               <td>{{obj.applydate}}</td></tr>
+    <tr>
+        <th>ADHAR NUMBER </th>
+        <td>{{obj.adhar_no}}</td></tr>
+    <tr>
+        <th>GENDER </th>
+        <td>{{obj.gender}}</td></tr>
+    <tr>
+        <th>AGE</th>
+        <td>{{obj.age}}</td></tr>
+    <tr>
+        <th>PHOTO </th>
+        <td>{{obj.photo}}</td></tr>
+    <tr>
+        <th>APPLICANT JOB </th>
+        <td>{{obj.app_job}}</td></tr>
+      <tr>
+        <th> ID PROOF </th>
+        <td>{{obj.idproof}}</td></tr>
+      <tr>
+        <th>APPLICANT JOB </th>
+        <td>{{obj.app_job}}</td></tr>
+      <tr>
+        <th>APPLICANT JOB </th>
+        <td>{{obj.app_job}}</td></tr>
+      <tr>
+        <th> AVAILABLE PLOT </th>
+        <td>{{obj.plot_available}}</td></tr>
+      <tr>
+        <th>CENT </th>
+        <td>{{obj.cent}}</td></tr>
+      <tr>
+        <th>SURVEY NUMBER </th>
+        <td>{{obj.survey_no }}</td></tr>
+      <tr>
+        <th>PLOT DISTRICT ID</th>
+        <td>{{obj.plot_distid}}</td></tr>
+      <tr>
+        <th>PLOT VILLAGE ID</th>
+        <td>{{obj.plot_villageid}}</td></tr>
+    <tr>
+        <th>LOCATION </th>
+        <td>{{obj.location }}</td></tr>
+      <tr>
+        <th>LOCATION TYPE</th>
+        <td>{{obj.loc_type }}</td></tr>
+      <tr>
+        <th>RATIONCARD NUMBER </th>
+        <td>{{obj.rationcard_no }}</td></tr>
+    <tr>
+        <th>STATUS </th>
+        <td>{{obj.status}}</td></tr>
+    <tr>
+        <th>MEMBERSHIP NUMBER </th>
+        <td>{{obj.member_no}}</td></tr>
+         <tr>
+        <th>GOVERNMENT EMPLOYMENT NUMBER </th>
+        <td>{{obj.Gov_emp_no }}</td></tr>
+      <tr>
+        <th>ANNUAL INCOME</th>
+        <td>{{obj.Anual_income }}</td></tr>
+      <tr>
+        <th>INCOME CERTIFICATE </th>
+        <td>{{obj.Income_certf }}</td></tr>
+      <tr>
+        <th>APPLICATION DATE </th>
+        <td>{{obj.applydate }}</td></tr>
+      <tr>
+        <th>VERIFY STATUS </th>
+        <td>{{obj.Verify_status }}</td></tr>
+      <tr>
+        <th>WORK STATUS</th>
+        <td>{{obj.Work_status }}</td></tr>
+ <tr>
+        <th></th>
+        <td><a href="{% url 'approve_proj' obj.id %}">Approve</a></td></tr>
+
+
+
+</table>
+ {% endfor %}
+</body>
+</html>

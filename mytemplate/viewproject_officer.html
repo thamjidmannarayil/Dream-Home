@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>APPLICANT ID</th>
+        <th>APPLICANT NUMBER</th>
+        <th>APPLICATION DATE</th>
+        <th>STATUS </th>
+    </tr>
+             {% for obj in project_list %}
+
+    <tr>
+      <td>{{obj.applicantid}}</td>
+        <td>{{obj.appln_no}}</td>
+        <td>{{obj.applydate}}</td>
+        <td>{{obj.status}}</td>
+           <td><a href="{% url 'more_request' obj.id %}"> More..</a></td>
+
+
+
+    </tr>
+         {% endfor %}
+</table>
+</body>
+</html>
